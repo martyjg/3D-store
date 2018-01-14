@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from './ProductItem';
+import SideCart from './SideCart';
 // import { connect } from 'react-redux';
 
 // const mapStateToProps = state => {
@@ -67,9 +68,16 @@ export default class ProductListing extends Component {
         })
 
         return (
-            <div style={{display: 'flex', width: '100%', flexWrap: 'wrap', padding: '0 4px'}}>
-                {items}
-                {items}
+            <div style={{
+                    display: 'flex',
+                    width: '100%'
+                }}>
+                <div style={{display: 'flex', width: '100%', flexWrap: 'wrap', padding: '0 4px'}}>
+                    {items}
+                    {items}
+                    {items}
+                </div>
+                <SideCart />
             </div>
         );
     }

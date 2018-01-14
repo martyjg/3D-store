@@ -4,12 +4,10 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types';
 
-const mapStateToProps = state => {
-    return { products: state.products.products };
-};
+const mapStateToProps = state => ({ products: state.entities.products });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/checkout')
+    changePage: () => push('checkout')
 }, dispatch);
 
 const ConnectedSideCart = ({ changePage, products }) => (

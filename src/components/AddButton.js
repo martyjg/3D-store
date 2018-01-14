@@ -10,6 +10,10 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
+const mapStateToProps = (state, ownProps) => ({
+    ...ownProps
+})
+
 class ConnectedAddButton extends Component {
 
     handleAdd(product) {
@@ -25,7 +29,7 @@ class ConnectedAddButton extends Component {
 
 };
 
-const AddButton = connect(null, mapDispatchToProps)(ConnectedAddButton);
+const AddButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedAddButton);
 
 export default AddButton;
 

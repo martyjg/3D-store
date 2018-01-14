@@ -1,1 +1,6 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const CLIENT_REQUEST = 'CLIENT_REQUEST';
+export const CLIENT_LOADED = 'CLIENT_LOADED';
+
+// export const CLIENTS_LOADED = 'CLIENTS_LOADED';
+// export const CLIENT_ADDED = 'CLIENT_ADDED';

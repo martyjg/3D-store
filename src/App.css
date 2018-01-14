@@ -25,7 +25,7 @@
 .App-container {
     max-width: 1024px;
     margin: 0 auto;
-    background-color: coral;
+    background-color: #f2f2f2;
     display: flex;
 }
 
@@ -44,4 +44,8 @@ ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
+}
+
+body {
+    overflow-y: scroll;
 }
