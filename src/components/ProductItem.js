@@ -14,7 +14,7 @@ export default class ProductItem extends Component {
                 <h3
                     style={{margin: '8px 0'}}
                     dangerouslySetInnerHTML={{__html: this.props.content.price}} />
-                <AddButton />
+                <AddButton product={this.props.content} />
             </div>
         );
     }

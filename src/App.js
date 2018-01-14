@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductListing from './components/ProductListing';
 import Settings from './components/Settings';
+import SideCart from './components/SideCart';
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,17 +17,17 @@ export default class App extends Component {
                     <aside style={{flex: '0 0 300px', borderRight: '1px solid black'}}>
                         <nav style={{position: 'sticky', top: '0'}}>
                             <ul>
-                                <li>Products</li>
-                                <li>Settings</li>
+                                <li>
+                                    <h4>Products</h4>
+                                </li>
+                                <li>
+                                    <h4>Settings</h4>
+                                </li>
                             </ul>
                         </nav>
                     </aside>
                     <ProductListing />
-                    <div style={{flex: '0 0 150px', borderLeft: '1px solid black'}}>
-                        <div style={{position: 'sticky', top: '0'}}>
-                            Checkout
-                        </div>
-                    </div>
+                    <SideCart />
                 </article>
                 <footer style={{height: '200px', backgroundColor: 'aquamarine'}}>
                     <div className='App-footer'>
