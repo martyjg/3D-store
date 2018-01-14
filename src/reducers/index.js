@@ -1,4 +1,6 @@
 import { ADD_PRODUCT } from '../constants/action-types';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const initialState = {
     products: []
@@ -13,4 +15,7 @@ const rootReducer = (state = initialState, action) => {
     }
 };
 
-export default rootReducer;
+export default combineReducers({
+    router: routerReducer,
+    products: rootReducer
+});
