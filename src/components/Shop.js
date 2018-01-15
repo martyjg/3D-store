@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import ProductListing from './ProductListing';
-import Settings from './Settings';
 import Checkout from './Checkout';
-import SideCart from './SideCart';
 import SideNav from './SideNav';
 
 export default class Shop extends Component {

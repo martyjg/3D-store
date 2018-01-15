@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddButton from './AddButton';
+import CustomButton from './CustomButton';
 
 export default class ProductItem extends Component {
 
@@ -14,7 +14,9 @@ export default class ProductItem extends Component {
                 <h3
                     style={{margin: '8px 0'}}
                     dangerouslySetInnerHTML={{__html: this.props.content.price}} />
-                <AddButton product={this.props.content} />
+                <CustomButton
+                    label='Add'
+                    product={this.props.content} />
             </div>
         );
     }

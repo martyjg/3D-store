@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import Signup from './components/Signup';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Shop from './components/Shop';
 import Settings from './components/Settings';
 import logo from './logo.svg';
@@ -14,24 +13,20 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
     client: state.client
-})
+});
 
 const mapStateToActions = {
     loadClient
-}
+};
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     componentWillMount() {
         this.props.loadClient(this.props.match.params.clientId)
     }
 
     render () {
-        const {match, client} = this.props;
+        const { match, client } = this.props;
         if (client.isLoading) {
             // TODO: return a spinner mate.
             return null;
