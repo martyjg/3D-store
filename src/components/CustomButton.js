@@ -17,19 +17,24 @@ const mapStateToProps = (state, ownProps) => ({
 
 class CustomButton extends Component {
 
+
+
     handleAdd(product) {
         this.props.addProduct(product);
     }
 
     render() {
         const { client, label } = this.props;
+        const styles = {
+            button: {
+                backgroundColor: client.buttonColor,
+                padding: client.buttonPadding + 'px',
+                border: client.buttonBorder + 'px solid black'
+            }
+        }
         return (
             <button
-                style={{
-                    backgroundColor: client.buttonColor,
-                    padding: client.buttonPadding + 'px',
-                    border: client.buttonBorder + 'px solid black'
-                }}
+                style={styles.button}
                 onClick={() => {this.handleAdd(this.props.product)}} type='button'>
                     {label}
             </button>
@@ -41,5 +46,7 @@ class CustomButton extends Component {
 export default connect(mapStateToProps, mapDispatchToProps)(CustomButton);
 
 CustomButton.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    client: PropTypes.object,
+    label: PropTypes.string
 }

@@ -7,25 +7,30 @@ import {updateClientSettings} from '../actions';
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
     client: state.client
-})
+});
 
 const mapStateToActions = {
     updateClientSettings
-}
+};
 
 class Settings extends Component {
 
     constructor(props) {
         super(props);
-        const { client } = props
+        const { client } = props;
         this.state = {
-            color: client.color,
+            headerColor: client.headerColor,
+            footerColor: client.footerColor,
             displayName: client.displayName,
             logo: client.logo,
             font: client.font,
             buttonBorder: client.buttonBorder,
             buttonColor: client.buttonColor,
-            buttonPadding: client.buttonPadding
+            buttonPadding: client.buttonPadding,
+            blogLink: client.blogLink,
+            checkoutBanner: client.checkoutBanner,
+            footerLeftColumn: client.footerLeftColumn,
+            footerRightColumn: client.footerRightColumn
         };
     }
 
@@ -41,19 +46,30 @@ class Settings extends Component {
     }
 
     render() {
+
+        const { client } = this.props;
+        const styles = {
+            button: {
+                backgroundColor: client.buttonColor,
+                padding: client.buttonPadding + 'px',
+                border: client.buttonBorder + 'px solid black'
+            }
+        };
+        const fontOptions = ['Helvetica', 'Monospace', 'Courier'];
+
         return (
             <div className='App-container'>
                 <SideNav />
                 <div style={{width: '100%', padding: '0 4px', textAlign: 'left'}}>
                     <h1>Settings</h1>
-                    <form onSubmit={this.handleSubmit.bind(this)}>
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
                         <section>
                             <label>Link to Logo
                                 <input
                                     value={this.state.logo}
                                     name='logo'
                                     type='text'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
                             <label>Display Name
@@ -61,15 +77,36 @@ class Settings extends Component {
                                     value={this.state.displayName}
                                     name='displayName'
                                     type='text'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
-                            <label>Theme Color
+                            <label>Font
+                                <select
+                                    value={this.state.font}
+                                    style={{fontFamily: this.state.font}}
+                                    name='font'
+                                    onChange={(e) => this.handleChange(e)}>
+                                    {fontOptions.map((option, i) => (
+                                        <option
+                                            key={i}
+                                            value={option}>{option}</option>
+                                    ))}
+                                </select>
+                            </label>
+                            <label>Header Background Color
                                 <input
-                                    value={this.state.color}
-                                    name='color'
+                                    value={this.state.headerColor}
+                                    name='headerColor'
                                     type='color'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
+                            <label>Footer Background Color
+                                <input
+                                    value={this.state.footerColor}
+                                    name='footerColor'
+                                    type='color'
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
                         </section>
@@ -94,7 +131,7 @@ class Settings extends Component {
                                     type='number'
                                     min='0'
                                     max='5'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
                             <label>Button Padding
@@ -104,7 +141,7 @@ class Settings extends Component {
                                     type='number'
                                     min='0'
                                     max='10'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
                             <label>Button Color
@@ -112,14 +149,47 @@ class Settings extends Component {
                                     value={this.state.buttonColor}
                                     name='buttonColor'
                                     type='color'
-                                    onChange={this.handleChange.bind(this)}
+                                    onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
                         </section>
                         <section>
-                            {/* blog link, special banner, customized footer */}
+                            <label>Link to Blog
+                                <input
+                                    value={this.state.blogLink}
+                                    name='blogLink'
+                                    type='text'
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
+                            <label>
+                                Custom Checkout Banner
+                                <textarea
+                                    name='checkoutBanner'
+                                    value={this.state.checkoutBanner}
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
+                            <label>
+                                Footer Left Column
+                                <textarea
+                                    name='footerLeftColumn'
+                                    value={this.state.footerLeftColumn}
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
+                            <label>
+                                Footer Right Column
+                                <textarea
+                                    name='footerRightColumn'
+                                    value={this.state.footerRightColumn}
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
                         </section>
-                        <button type='submit'>Save</button>
+                        <button
+                            style={styles.button}
+                            type='submit'>Save</button>
                     </form>
                 </div>
             </div>
@@ -127,4 +197,4 @@ class Settings extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapStateToActions)(Settings)
+export default connect(mapStateToProps, mapStateToActions)(Settings);
