@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import { addProduct } from '../actions';
 
@@ -16,8 +15,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 class CustomButton extends Component {
-
-
 
     handleAdd(product) {
         this.props.addProduct(product);
@@ -41,7 +38,7 @@ class CustomButton extends Component {
         );
     }
 
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomButton);
 

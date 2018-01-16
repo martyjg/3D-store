@@ -1,5 +1,4 @@
 import * as actionTypes from '../constants/action-types';
-
 import getFirebaseInstance from '../firebaseApp';
 
 const firebaseApp = getFirebaseInstance();

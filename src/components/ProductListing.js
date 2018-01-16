@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProductItem from './ProductItem';
 import SideCart from './SideCart';
 // import { connect } from 'react-redux';
@@ -58,24 +58,22 @@ const products = [
     }
 ];
 
-export default class ProductListing extends Component {
-    render() {
-
-        const items = products.map((item, i) => {
-            return (
-                <ProductItem key={i} content={item} />
-            )
-        })
-
+const ProductListing = () => {
+    const items = products.map((item, i) => {
         return (
-            <div className='ProductListing-container'>
-                <div className='ProductListing'>
-                    {items}
-                    {items}
-                    {items}
-                </div>
-                <SideCart />
-            </div>
+            <ProductItem key={i} content={item} />
         );
-    }
+    });
+    return (
+        <div className='ProductListing-container'>
+            <div className='ProductListing'>
+                {items}
+                {items}
+                {items}
+            </div>
+            <SideCart />
+        </div>
+    );
 }
+
+export default ProductListing;

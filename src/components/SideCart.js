@@ -48,7 +48,6 @@ const SideCart = ({ changePage, products, client }) => {
     );
 };
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(SideCart);
 
 SideCart.propTypes = {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import SideNav from './SideNav';
-
 import {updateClientSettings} from '../actions';
 
 const mapStateToProps = (state, ownProps) => ({

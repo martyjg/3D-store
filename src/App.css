@@ -2,14 +2,20 @@
     text-align: center;
 }
 
-.App-logo {
-    /* animation: App-logo-spin infinite 20s linear; */
+.Spinner {
+    text-align: center;
+    margin-top: calc(50vh - 40px);
+}
+
+.Spinner > img {
+    animation: spin infinite 20s linear;
     height: 80px;
 }
 
 .App-header {
     height: 150px;
     padding: 20px;
+    border-bottom: 1px solid black;
 }
 
 .App-title {
@@ -38,7 +44,7 @@
     align-items: center;
 }
 
-@keyframes App-logo-spin {
+@keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }

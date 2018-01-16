@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/action-types';
 
-const initialState = []
+const initialState = [];
 
 const products = (state = initialState, action) => {
     switch (action.type) {

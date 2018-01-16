@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -6,24 +6,17 @@ const mapStateToProps = (state, ownProps) => ({
     client: state.client
 });
 
-class Checkout extends Component {
+const Checkout = ({ client }) => (
 
-    render() {
+    <article className='Checkout-container'>
+        {client.checkoutBanner &&
+            <a href={client.checkoutBannerLink}>
+                <div dangerouslySetInnerHTML={{__html: client.checkoutBanner}} />
+            </a>
+        }
+        <h1>Checkout</h1>
+    </article>
 
-        const { client } = this.props;
-
-        return (
-            <article className='Checkout-container'>
-                {client.checkoutBanner &&
-                    <a href={client.checkoutBannerLink}>
-                        <div dangerouslySetInnerHTML={{__html: client.checkoutBanner}} />
-                    </a>
-                }
-                <h1>Checkout</h1>
-            </article>
-        );
-    }
-
-}
+);
 
 export default connect(mapStateToProps)(Checkout);
