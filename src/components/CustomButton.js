@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { addProduct } from '../actions/index';
+import { addProduct } from '../actions';
 
 const mapDispatchToProps = dispatch => {
     return {

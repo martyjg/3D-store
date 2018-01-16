@@ -14,30 +14,40 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     changePage: () => push('checkout')
 }, dispatch);
 
-const SideCart = ({ changePage, products, client }) => (
-    <div style={{flex: '0 0 150px', borderLeft: '1px solid black'}}>
-        <div style={{position: 'sticky', top: '0'}}>
-            <h4>Cart</h4>
-            <ul>
-                {products.map((product, i) => (
-                    <li key={i}>
-                        {product.name}
-                    </li>
-                ))}
-            </ul>
-            {products.length > 0 &&
-                <button
-                    style={{
-                        backgroundColor: client.buttonColor,
-                        padding: client.buttonPadding + 'px',
-                        border: client.buttonBorder + 'px solid black'
-                    }}
-                    type='button'
-                    onClick={() => changePage()}>Checkout</button>
-            }
+const SideCart = ({ changePage, products, client }) => {
+    const total = products.reduce(
+        (accumulation, currentValue) => accumulation + currentValue.price,
+        0
+    );
+    return (
+        <div className='SideCart-container'>
+            <div>
+                <h4>Cart</h4>
+                <ul>
+                    {products.map((product, i) => (
+                        <li key={i}>
+                            {product.name}
+                        </li>
+                    ))}
+                </ul>
+                {products.length > 0 &&
+                    <div>
+                        <h4>Total: £{total.toFixed(2)}</h4>
+                        <button
+                            style={{
+                                backgroundColor: client.buttonColor,
+                                padding: client.buttonPadding + 'px',
+                                border: client.buttonBorder + 'px solid black'
+                            }}
+                            type='button'
+                            onClick={() => changePage()}>Checkout</button>
+                    </div>
+                }
+            </div>
         </div>
-    </div>
-);
+    );
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideCart);
 

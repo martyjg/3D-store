@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
 import SideNav from './SideNav';
 
 import {updateClientSettings} from '../actions';
@@ -29,6 +28,7 @@ class Settings extends Component {
             buttonColor: client.buttonColor,
             buttonPadding: client.buttonPadding,
             blogLink: client.blogLink,
+            checkoutBannerLink: client.checkoutBannerLink,
             checkoutBanner: client.checkoutBanner,
             footerLeftColumn: client.footerLeftColumn,
             footerRightColumn: client.footerRightColumn
@@ -61,10 +61,10 @@ class Settings extends Component {
         return (
             <div className='App-container'>
                 <SideNav />
-                <div style={{width: '100%', padding: '0 4px', textAlign: 'left'}}>
+                <div className='Settings-container'>
                     <h1>Settings</h1>
                     <form onSubmit={(e) => this.handleSubmit(e)}>
-                        <section>
+                        <section className='Settings-first'>
                             <label>Link to Logo
                                 <input
                                     value={this.state.logo}
@@ -80,19 +80,6 @@ class Settings extends Component {
                                     type='text'
                                     onChange={(e) => this.handleChange(e)}
                                     />
-                            </label>
-                            <label>Font
-                                <select
-                                    value={this.state.font}
-                                    style={{fontFamily: this.state.font}}
-                                    name='font'
-                                    onChange={(e) => this.handleChange(e)}>
-                                    {fontOptions.map((option, i) => (
-                                        <option
-                                            key={i}
-                                            value={option}>{option}</option>
-                                    ))}
-                                </select>
                             </label>
                             <label>Header Background Color
                                 <input
@@ -110,8 +97,21 @@ class Settings extends Component {
                                     onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
+                            <label>Font
+                                <select
+                                    value={this.state.font}
+                                    style={{fontFamily: this.state.font}}
+                                    name='font'
+                                    onChange={(e) => this.handleChange(e)}>
+                                    {fontOptions.map((option, i) => (
+                                        <option
+                                            key={i}
+                                            value={option}>{option}</option>
+                                    ))}
+                                </select>
+                            </label>
                         </section>
-                        <section>
+                        <section className='Settings-second'>
                             <div>
                                 Button Style:
                                 <button
@@ -154,7 +154,7 @@ class Settings extends Component {
                                     />
                             </label>
                         </section>
-                        <section>
+                        <section className='Settings-third'>
                             <label>Link to Blog
                                 <input
                                     value={this.state.blogLink}
@@ -163,8 +163,24 @@ class Settings extends Component {
                                     onChange={(e) => this.handleChange(e)}
                                     />
                             </label>
+                        </section>
+                        <section className='Settings-fourth'>
                             <label>
-                                Custom Checkout Banner
+                                Custom Checkout Banner Link
+                                <input
+                                    name='checkoutBannerLink'
+                                    value={this.state.checkoutBannerLink}
+                                    onChange={(e) => this.handleChange(e)}
+                                    />
+                            </label>
+                            <label>
+                                Custom Checkout Banner (HTML-friendly)
+                                {client.checkoutBanner &&
+                                    <div>
+                                        Preview:
+                                        <div dangerouslySetInnerHTML={{__html: client.checkoutBanner}} />
+                                    </div>
+                                }
                                 <textarea
                                     name='checkoutBanner'
                                     value={this.state.checkoutBanner}
@@ -172,7 +188,7 @@ class Settings extends Component {
                                     />
                             </label>
                             <label>
-                                Footer Left Column
+                                Footer Left Column (HTML-friendly)
                                 <textarea
                                     name='footerLeftColumn'
                                     value={this.state.footerLeftColumn}
@@ -180,7 +196,7 @@ class Settings extends Component {
                                     />
                             </label>
                             <label>
-                                Footer Right Column
+                                Footer Right Column (HTML-friendly)
                                 <textarea
                                     name='footerRightColumn'
                                     value={this.state.footerRightColumn}

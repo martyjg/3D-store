@@ -14,6 +14,7 @@ const initialState = {
     headerColor: '#ffffff',
     footerColor: '#ffffff',
     blogLink: '',
+    checkoutBannerLink: '',
     checkoutBanner: '',
     footerLeftColumn: '',
     footerRightColumn: ''

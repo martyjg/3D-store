@@ -4,8 +4,8 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div>sing up</div>
+            <div>sign up</div>
         );
     }
 
-};
+}

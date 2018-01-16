@@ -8,25 +8,31 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const SideNav = ({ client }) => (
-    <aside style={{flex: '0 0 300px', borderRight: '1px solid black', display: 'flex', flexDirection: 'column'}}>
-        <nav style={{position: 'sticky', top: '0'}}>
+    <aside className='SideNav-container'>
+        <nav>
             <ul>
                 <li>
-                    <h4>
-                        <Link to='products'>Products</Link>
-                    </h4>
+                    <Link to='products'>
+                        <h4>
+                            Products
+                        </h4>
+                    </Link>
                 </li>
                 {client.blogLink &&
                     <li>
-                        <h4>
-                            <a href={client.blogLink}>Blog</a>
-                        </h4>
+                        <a href={client.blogLink}>
+                            <h4>
+                                Blog
+                            </h4>
+                        </a>
                     </li>
                 }
                 <li>
-                    <h4>
-                        <Link to='settings'>Settings</Link>
-                    </h4>
+                    <Link to='settings'>
+                        <h4>
+                            Settings
+                        </h4>
+                    </Link>
                 </li>
             </ul>
         </nav>

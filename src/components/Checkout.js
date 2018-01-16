@@ -13,11 +13,13 @@ class Checkout extends Component {
         const { client } = this.props;
 
         return (
-            <article>
+            <article className='Checkout-container'>
                 {client.checkoutBanner &&
-                    <div dangerouslySetInnerHTML={{__html: client.checkoutBanner}} />
+                    <a href={client.checkoutBannerLink}>
+                        <div dangerouslySetInnerHTML={{__html: client.checkoutBanner}} />
+                    </a>
                 }
-                <div>Checkout</div>
+                <h1>Checkout</h1>
             </article>
         );
     }
