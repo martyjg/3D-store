@@ -69,12 +69,8 @@ class App extends Component {
                 </Switch>
                 <footer style={styles.footer}>
                     <div className='App-footer'>
-                        {client.footerLeftColumn &&
-                            <div dangerouslySetInnerHTML={{__html: client.footerLeftColumn}} />
-                        }
-                        {client.footerRightColumn &&
-                            <div dangerouslySetInnerHTML={{__html: client.footerRightColumn}} />
-                        }
+                        <div dangerouslySetInnerHTML={{__html: client.footerLeftColumn}} />
+                        <div style={{float: 'right'}} dangerouslySetInnerHTML={{__html: client.footerRightColumn}} />
                     </div>
                 </footer>
             </div>
