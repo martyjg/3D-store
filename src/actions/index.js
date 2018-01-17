@@ -28,7 +28,6 @@ export const updateClientSettings = (clientId, settingsData) => (distpach, getSt
         .update(settingsData)
 }
 
-
 // export const loadClients = () => (dispatch, getState) => {
 //     firebaseApp.database()
 //         .ref('clients')

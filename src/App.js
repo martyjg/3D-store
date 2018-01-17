@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Shop from './components/Shop';
 import Settings from './components/Settings';
 import spinner from './spinner.svg';
 import './App.css';
-
 import { loadClient } from './actions';
-
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -40,7 +37,6 @@ class App extends Component {
             },
             header: {
                 backgroundColor: client.headerColor,
-                // borderBottom: client.headerColor ? '' : '1px solid black'
             },
             footer: {
                 backgroundColor: client.footerColor

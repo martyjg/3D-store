@@ -1,23 +1,6 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import SideCart from './SideCart';
-// import { connect } from 'react-redux';
-
-// const mapStateToProps = state => {
-//     return { products: state.products };
-// }
-//
-// const ConnectedList = ({ products }) => (
-//     <div style={{display: 'flex', width: '100%', flexWrap: 'wrap', padding: '0 4px'}}>
-//         {products.map((product, i) => (
-//             <ProductItem key={i} content={product} />
-//         ))}
-//     </div>
-// )
-//
-// const ProductListing = connect(mapStateToProps)(ConnectedList);
-//
-// export default ProductListing;
 
 const products = [
     {
